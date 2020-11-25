@@ -4,8 +4,10 @@
 package FFSSM;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import org.graalvm.compiler.nodes.java.ArrayLengthNode;
 
 public class Plongee {
 
@@ -18,6 +20,8 @@ public class Plongee {
 	public int profondeur;
 
 	public int duree;
+        
+        public ArrayList<Plongeur> participant;
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
@@ -28,8 +32,7 @@ public class Plongee {
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		this.participant.add(participant);
 	}
 
 	public LocalDate getDate() {
@@ -43,8 +46,12 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+               for(Plongeur p : participant){
+                    if(!p.getLastLicence().estValide(this.getDate())){
+                        return false;
+                    }
+                }
+                return true;
 	}
 
 }
