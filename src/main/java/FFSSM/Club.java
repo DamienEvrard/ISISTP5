@@ -91,4 +91,14 @@ public class Club {
         return "Club{" + "président=" + president + ", nom=" + nom + ", adresse=" + adresse + ", telephone=" + telephone + '}';
     }
 
+    public ArrayList<Plongee> getPlongees() {
+        return plongees;
+    }
+
+    public void setPlongees(ArrayList<Plongee> plongees) {
+        this.plongees = plongees;
+    }
+    
+    
+
 }

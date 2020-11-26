@@ -29,6 +29,7 @@ public class Plongee {
 		this.date = date;
 		this.profondeur = profondeur;
 		this.duree = duree;
+                this.participant=new ArrayList<>();
 	}
 
 	public void ajouteParticipant(Plongeur participant) {
@@ -46,12 +47,56 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-               for(Plongeur p : participant){
-                    if(!p.getLastLicence().estValide(this.getDate())){
-                        return false;
-                    }
-                }
-                return true;
+            if(!participant.isEmpty()){
+                for(Plongeur p : participant){
+                     if(!p.getLastLicence().estValide(this.getDate())){
+                         return false;
+                     }
+                 }
+            }
+            return true;
 	}
+
+    public Site getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(Site lieu) {
+        this.lieu = lieu;
+    }
+
+    public Moniteur getChefDePalanquee() {
+        return chefDePalanquee;
+    }
+
+    public void setChefDePalanquee(Moniteur chefDePalanquee) {
+        this.chefDePalanquee = chefDePalanquee;
+    }
+
+    public int getProfondeur() {
+        return profondeur;
+    }
+
+    public void setProfondeur(int profondeur) {
+        this.profondeur = profondeur;
+    }
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
+
+    public ArrayList<Plongeur> getParticipant() {
+        return participant;
+    }
+
+    public void setParticipant(ArrayList<Plongeur> participant) {
+        this.participant = participant;
+    }
+        
+        
 
 }

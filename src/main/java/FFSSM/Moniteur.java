@@ -42,6 +42,7 @@ public class Moniteur extends Plongeur {
     public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {
         
         this.emplois.add(new Embauche(debutNouvelle, this, employeur));
+        this.employeur = Optional.of(employeur);
     }
     
     public void terminerEmbauche(LocalDate fin){
@@ -52,4 +53,29 @@ public class Moniteur extends Plongeur {
         return emplois;
     }
 
+    public int getNumeroDiplome() {
+        return numeroDiplome;
+    }
+
+    public void setNumeroDiplome(int numeroDiplome) {
+        this.numeroDiplome = numeroDiplome;
+    }
+
+    public ArrayList<Embauche> getEmplois() {
+        return emplois;
+    }
+
+    public void setEmplois(ArrayList<Embauche> emplois) {
+        this.emplois = emplois;
+    }
+
+    public Optional<Club> getEmployeur() {
+        return employeur;
+    }
+
+    public void setEmployeur(Optional<Club> employeur) {
+        this.employeur = employeur;
+    }
+
+    
 }

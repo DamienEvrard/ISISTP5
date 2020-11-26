@@ -52,7 +52,7 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(LocalDate d) {
-        return delivrance.isBefore(d.plusYears(1));
+        return delivrance.until(d).getYears() < 1;
     }
     
     
